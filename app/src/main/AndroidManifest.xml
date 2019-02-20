@@ -20,6 +20,7 @@
         <activity android:name=".SignInActivity" />
         <activity android:name=".taskFragment.dummy.SplashActivity" />
         <activity android:name=".taskFragment.dummy.CardActivity" />
+        <activity android:name=".taskFragment.dummy.BabyCard"></activity>
     </application>
 
 </manifest>

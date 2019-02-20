@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.noranow.noranfinal2019.taskFragment.dummy.CardActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -62,7 +63,7 @@ public class SignInActivity extends AppCompatActivity {
                 if(task.isSuccessful())
                 {
                     Toast.makeText(SignInActivity.this, "signIn Successful.", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(SignInActivity.this,Card.class);
+                    Intent intent=new Intent(SignInActivity.this,CardActivity.class);
                     startActivity(intent);
                     //  finish();
                 }

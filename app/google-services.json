@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "490379522689",
+    "firebase_url": "https://noranfinal2019.firebaseio.com",
+    "project_id": "noranfinal2019",
+    "storage_bucket": "noranfinal2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490379522689:android:88a094c7c075356a",
+        "android_client_info": {
+          "package_name": "com.example.noranow.noranfinal2019"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490379522689-bc5uaqg45f1j4gh6p54rvdrheg2udc0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.noranow.noranfinal2019",
+            "certificate_hash": "905600aa45827a3ea4f60a53a8e7459030b5b400"
+          }
+        },
+        {
+          "client_id": "490379522689-cfd5hc3pp4bltjgep5mkgeqfmf356o31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz72rvT3_oMBRlk5DFsyxPVrjLRXiwTkU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490379522689-cfd5hc3pp4bltjgep5mkgeqfmf356o31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
