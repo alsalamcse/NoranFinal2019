@@ -18,8 +18,8 @@
         </activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".taskFragment.dummy.Card" />
-        <activity android:name=".taskFragment.dummy.SplashActivity"></activity>
+        <activity android:name=".taskFragment.dummy.SplashActivity" />
+        <activity android:name=".taskFragment.dummy.CardActivity" />
     </application>
 
 </manifest>

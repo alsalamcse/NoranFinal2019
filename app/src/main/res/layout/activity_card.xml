@@ -4,31 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".taskFragment.dummy.Card">
+    tools:context=".taskFragment.dummy.CardActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Health Card"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:clickable="true"
+        app:backgroundTint="@color/design_default_color_primary"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        tools:layout_editor_absoluteX="326dp"
+        tools:layout_editor_absoluteY="453dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="323dp"
-        android:layout_height="72dp"
-        android:text="baby 1"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="79dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="323dp"
-        android:layout_height="76dp"
-        android:text="baby2"
-        tools:layout_editor_absoluteX="33dp"
-        tools:layout_editor_absoluteY="178dp" />
-
+    <TextView
+        android:id="@+id/tvcard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HEALTH CARD"
+        android:textAppearance="@android:style/TextAppearance.Holo.DialogWindowTitle"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="28dp" />
 </android.support.constraint.ConstraintLayout>
