@@ -1,4 +1,4 @@
-package com.example.noranow.noranfinal2019.taskFragment.dummy;
+package com.example.noranow.noranfinal2019;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -6,11 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.QuickContactBadge;
 import android.widget.TextView;
-
-import com.example.noranow.noranfinal2019.R;
-import com.example.noranow.noranfinal2019.SignUpActivity;
 
 public class CardActivity extends AppCompatActivity {
     private TextView tvcard;

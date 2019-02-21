@@ -1,4 +1,4 @@
-package com.example.noranow.noranfinal2019.taskFragment.dummy;
+package com.example.noranow.noranfinal2019;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.noranow.noranfinal2019.CardActivity;
 import com.example.noranow.noranfinal2019.R;
-import com.example.noranow.noranfinal2019.SignUpActivity;
 
 public class BabyCard extends AppCompatActivity {
     private EditText edtname, edtdate, edtlength, edtweight;

@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.noranow.noranfinal2019.taskFragment.dummy.CardActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -34,7 +33,7 @@ public class SignInActivity extends AppCompatActivity {
         btnup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // كود الانتقال إلى الشاشة الأخرى
+
                 Intent i=new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(i);
             }

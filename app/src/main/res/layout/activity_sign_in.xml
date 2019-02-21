@@ -8,37 +8,52 @@
 
     <EditText
         android:id="@+id/edtemail2"
-        android:layout_width="382dp"
-        android:layout_height="51dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="42dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/edtpass2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edtpass2"
-        android:layout_width="381dp"
-        android:layout_height="51dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="65dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="109dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtemail2" />
 
     <Button
         android:id="@+id/btnin"
         android:layout_width="200dp"
-        android:layout_height="61dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="14dp"
         android:text="Sign in"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="225dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtpass2" />
 
     <Button
         android:id="@+id/btnup"
         android:layout_width="202dp"
-        android:layout_height="62dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="149dp"
         android:text="Sign up"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="300dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnin" />
 </android.support.constraint.ConstraintLayout>

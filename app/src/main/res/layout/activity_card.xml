@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".taskFragment.dummy.CardActivity">
+    tools:context=".CardActivity">
 
     <TextView
         android:id="@+id/tvcard"
@@ -19,27 +19,25 @@
 
     <ListView
         android:id="@+id/listV"
-        android:layout_width="304dp"
-        android:layout_height="0dp"
+        android:layout_width="236dp"
+        android:layout_height="259dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="88dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="65dp"
-        app:layout_constraintBottom_toTopOf="@+id/fabadd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabadd"
-        android:layout_width="60dp"
-        android:layout_height="61dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="23dp"
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="33dp"
         android:clickable="true"
-        app:fabSize="normal"
+        android:src="@android:drawable/ic_menu_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listV"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:rippleColor="@color/colorPrimaryDark" />
+
 </android.support.constraint.ConstraintLayout>

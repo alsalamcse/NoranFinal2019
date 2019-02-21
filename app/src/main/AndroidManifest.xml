@@ -10,17 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".NoranActivity12">
+
+        </activity>
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".taskFragment.dummy.SplashActivity" />
-        <activity android:name=".taskFragment.dummy.CardActivity" />
-        <activity android:name=".taskFragment.dummy.BabyCard"></activity>
+        <activity android:name=".CardActivity" />
+        <activity android:name=".BabyCard"></activity>
     </application>
 
 </manifest>

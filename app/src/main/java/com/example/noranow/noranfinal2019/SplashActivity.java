@@ -1,4 +1,4 @@
-package com.example.noranow.noranfinal2019.taskFragment.dummy;
+package com.example.noranow.noranfinal2019;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
