@@ -26,7 +26,7 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
         edtemail2=(EditText)findViewById(R.id .edtemail2) ;
-        edtemail2=(EditText)findViewById(R.id .edtpass2) ;
+        edtpass2=(EditText)findViewById(R.id .edtpass2) ;
         btnin=(Button)findViewById(R.id .btnin) ;
         btnup=(Button) findViewById(R.id .btnup) ;
 
