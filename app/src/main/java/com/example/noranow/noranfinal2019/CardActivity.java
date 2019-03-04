@@ -22,7 +22,7 @@ private ListView listV;
         fabadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(), BabyCard.class);
+                Intent i=new Intent(getApplicationContext(), AddBaby.class);
                 startActivity(i);
             }
         });
