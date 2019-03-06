@@ -6,7 +6,7 @@ public class Baby {
     private String name;// key: unique id for each object. have to be....
     private String weight;
     private String lenght;
-    private Date date;
+    private long date;
     private String owner;
 
     public Baby()
@@ -37,11 +37,11 @@ public class Baby {
         this.lenght = lenght;
     }
 
-    public Date getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(long date) {
         this.date = date;
     }
 

@@ -1,10 +1,12 @@
 package com.example.noranow.noranfinal2019;
 
+import android.app.DatePickerDialog;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,21 +18,27 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class AddBaby extends AppCompatActivity {
-    private EditText edtNameBaby, edtDateBirth, edtWeight, edtLength;
-    private Button btnSaveBaby;
+    private EditText edtNameBaby, edtWeight, edtLength,edtdate;
+    private Button btnSaveBaby,btnpickdate;
+    private int mYear, mMonth, mDay;
+    private long myDate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_baby);
-        edtDateBirth = findViewById(R.id.edtDateBirth);
         edtLength = findViewById(R.id.edtLength);
         edtNameBaby = findViewById(R.id.edtNameBaby);
         edtWeight = findViewById(R.id.edtWeight);
         btnSaveBaby = findViewById(R.id.btnSaveBaby);
+        edtdate=findViewById(R.id.edtdate);
+        btnpickdate=findViewById(R.id.btnpickdate);
+
 
         btnSaveBaby.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +46,12 @@ public class AddBaby extends AppCompatActivity {
                 dataHandler();
             }
         });
+       //btnpickdate.setOnClickListener(new View.OnClickListener() {
+           /// @Override
+           /// public void onClick(View v) {
 
+           /// }
+        //});
 
     }
 
@@ -46,7 +59,7 @@ public class AddBaby extends AppCompatActivity {
         boolean isok = true;
         String name = edtNameBaby.getText().toString();
         String weight = edtWeight.getText().toString();
-        String date = edtDateBirth.getText().toString();
+       // String date = edtdate.getText().toString();
         String length = edtLength.getText().toString();
         if (name.length() == 0) {
             edtNameBaby.setError("Name can not be empty");
@@ -62,14 +75,14 @@ public class AddBaby extends AppCompatActivity {
             edtLength.setError("Length can not be empty");
             isok = false;
         }
-        if (date.length() == 0) {
-            edtDateBirth.setError("Date can not be empty");
-            isok = false;
-        }
+      //  if (date.length() == 0) {
+          // edtdate.setError("Date can not be empty");
+            //isok = false;
+       // }
         if (isok) {
             MyTask task = new MyTask();
             Baby baby = new Baby();
-            baby.setDate(new Date(date));
+            baby.setDate(myDate);
             baby.setLenght(length);
             baby.setName(name);
             baby.setWeight(weight);
@@ -95,6 +108,34 @@ public class AddBaby extends AppCompatActivity {
                     }
                 }
             });
+        }
+    }
+    public void onClick(View v) {
+
+        if (v == btnpickdate) {
+
+            // Get Current Date
+            final Calendar c = Calendar.getInstance();
+            mYear = c.get(Calendar.YEAR);
+            mMonth = c.get(Calendar.MONTH);
+            mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+                            c.set(Calendar.YEAR, year);
+                            c.set(Calendar.MONTH,monthOfYear);
+                            c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                            myDate=c.getTime().getTime();
+                          edtdate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
         }
     }
 }

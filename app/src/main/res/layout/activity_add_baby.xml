@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/edtNameBaby"
         android:layout_width="358dp"
-        android:layout_height="58dp"
+        android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:ems="10"
@@ -18,49 +18,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edtDateBirth"
-        android:layout_width="359dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Date of birth"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNameBaby" />
-
     <Button
         android:id="@+id/btnSaveBaby"
         android:layout_width="109dp"
         android:layout_height="60dp"
         android:layout_marginBottom="77dp"
-        android:text="Save"
+        android:text="add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtLength" />
+        app:layout_constraintTop_toBottomOf="@+id/edtLength"
+        app:layout_constraintVertical_bias="0.492" />
 
     <EditText
         android:id="@+id/edtWeight"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="365dp"
+        android:layout_height="53dp"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="176dp"
         android:layout_marginEnd="11dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="279dp"
         android:ems="10"
         android:hint="Birth weight"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/edtLength"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edtLength"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="362dp"
+        android:layout_height="56dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="204dp"
@@ -69,7 +57,37 @@
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtWeight" />
+        app:layout_constraintTop_toBottomOf="@+id/edtWeight"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/edtdate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="11dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/btnpickdate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnpickdate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="345dp"
+        android:onClick="onClick"
+        android:text="Pick date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtdate" />
 
 </android.support.constraint.ConstraintLayout>
