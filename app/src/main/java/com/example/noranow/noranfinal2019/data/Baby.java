@@ -3,6 +3,7 @@ package com.example.noranow.noranfinal2019.data;
 import java.util.Date;
 
 public class Baby {
+    private String key;
     private String name;// key: unique id for each object. have to be....
     private String weight;
     private String lenght;
@@ -45,6 +46,17 @@ public class Baby {
         this.date = date;
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
 
     @Override
     public String toString() {
@@ -59,6 +71,8 @@ public class Baby {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
+
 }
 
 

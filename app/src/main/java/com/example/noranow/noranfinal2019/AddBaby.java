@@ -80,7 +80,7 @@ public class AddBaby extends AppCompatActivity {
             //isok = false;
        // }
         if (isok) {
-            MyTask task = new MyTask();
+            ///MyTask task = new MyTask();
             Baby baby = new Baby();
             baby.setDate(myDate);
             baby.setLenght(length);
@@ -89,22 +89,22 @@ public class AddBaby extends AppCompatActivity {
 
             //get user email to set is as the owner of this task
             FirebaseAuth auth = FirebaseAuth.getInstance();
-            task.setOwner(auth.getCurrentUser().getEmail());
+            baby.setOwner(auth.getCurrentUser().getEmail());
 // to get the database root reference
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
             //to get uid(universal id)
-            String key = reference.child("MyTasks").push().getKey();
-            task.setKey(key);
+            String key = reference.child("MyBaby").push().getKey();
+           baby.setKey(key);
 
-            reference.child("MyTasks").child(key).setValue(task).addOnCompleteListener(new OnCompleteListener<Void>() {
+            reference.child("MyBaby").child(key).setValue(baby).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(AddBaby.this, "Add Successful", Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(AddBaby.this, "Add Faild", Toast.LENGTH_LONG).show();
-
+                        Toast.makeText(AddBaby.this, "Add Faild"+ task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        task.getException().printStackTrace();
                     }
                 }
             });
