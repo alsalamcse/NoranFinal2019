@@ -23,7 +23,7 @@ import java.util.Date;
 
 public class AddBaby extends AppCompatActivity {
     private EditText edtNameBaby, edtWeight, edtLength,edtdate;
-    private Button btnSaveBaby,btnpickdate;
+    private Button btnAddBaby,btnpickdate;
     private int mYear, mMonth, mDay;
     private long myDate;
 
@@ -35,12 +35,12 @@ public class AddBaby extends AppCompatActivity {
         edtLength = findViewById(R.id.edtLength);
         edtNameBaby = findViewById(R.id.edtNameBaby);
         edtWeight = findViewById(R.id.edtWeight);
-        btnSaveBaby = findViewById(R.id.btnSaveBaby);
+        btnAddBaby = findViewById(R.id.btnSaveBaby);
         edtdate=findViewById(R.id.edtdate);
         btnpickdate=findViewById(R.id.btnpickdate);
 
 
-        btnSaveBaby.setOnClickListener(new View.OnClickListener() {
+        btnAddBaby.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dataHandler();
