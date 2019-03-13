@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".CardActivity" />
         <activity android:name=".ShowAllTasksActivity" />
-        <activity android:name=".AddBaby"></activity>
+        <activity android:name=".AddBaby" />
+        <activity android:name=".ChecksForThisMonth"></activity>
     </application>
 
 </manifest>

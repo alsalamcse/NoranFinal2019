@@ -1,6 +1,7 @@
 package com.example.noranow.noranfinal2019;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,17 +36,21 @@ public class AddBaby extends AppCompatActivity {
         edtLength = findViewById(R.id.edtLength);
         edtNameBaby = findViewById(R.id.edtNameBaby);
         edtWeight = findViewById(R.id.edtWeight);
-        btnAddBaby = findViewById(R.id.btnSaveBaby);
+        btnAddBaby = findViewById(R.id.btnAddBaby);
         edtdate=findViewById(R.id.edtdate);
         btnpickdate=findViewById(R.id.btnpickdate);
 
-
         btnAddBaby.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                dataHandler();
+            public void onClick(View view) {dataHandler();
+
+                Intent i=new Intent(getApplicationContext(),CardActivity .class);
+                startActivity(i);
             }
         });
+
+
+        }
        //btnpickdate.setOnClickListener(new View.OnClickListener() {
            /// @Override
            /// public void onClick(View v) {
@@ -53,7 +58,7 @@ public class AddBaby extends AppCompatActivity {
            /// }
         //});
 
-    }
+
 
     private void dataHandler() {
         boolean isok = true;
