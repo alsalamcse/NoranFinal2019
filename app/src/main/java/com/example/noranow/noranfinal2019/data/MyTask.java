@@ -2,7 +2,7 @@ package com.example.noranow.noranfinal2019.data;
 
 import java.util.Date;
 
-public class MyTask {
+public class MyTask extends Baby {
     private String key;// key: unique id for each object. have to be....
     private String title;
     private String text;
