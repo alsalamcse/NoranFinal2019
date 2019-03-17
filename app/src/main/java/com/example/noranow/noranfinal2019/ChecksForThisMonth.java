@@ -15,7 +15,7 @@ public class ChecksForThisMonth extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checks_for_this_month);
-        edtname=findViewById(R.id.edtname);
+        edtname=findViewById(R.id.edtPname);
         tvcheck=findViewById(R.id.tvcheck);
         checkBox=findViewById(R.id.checkBox);
         checkBox2=findViewById(R.id.checkBox2);

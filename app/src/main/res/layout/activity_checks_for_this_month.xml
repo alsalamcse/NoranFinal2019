@@ -14,7 +14,7 @@
         android:layout_marginBottom="23dp"
         android:text="Health checks for this month"
         android:textAppearance="@android:style/TextAppearance.Holo.DialogWindowTitle"
-        app:layout_constraintBottom_toTopOf="@+id/edtname"
+        app:layout_constraintBottom_toTopOf="@+id/edtPname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,12 +26,12 @@
         android:layout_marginBottom="31dp"
         android:text="CheckBox"
         app:layout_constraintBottom_toTopOf="@+id/checkBox2"
-        app:layout_constraintEnd_toEndOf="@+id/edtname"
+        app:layout_constraintEnd_toEndOf="@+id/edtPname"
         app:layout_constraintStart_toStartOf="@+id/checkBox2"
-        app:layout_constraintTop_toBottomOf="@+id/edtname" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPname" />
 
     <EditText
-        android:id="@+id/edtname"
+        android:id="@+id/edtPname"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="29dp"

@@ -21,7 +21,8 @@
         <activity android:name=".CardActivity" />
         <activity android:name=".ShowAllTasksActivity" />
         <activity android:name=".AddBaby" />
-        <activity android:name=".ChecksForThisMonth"></activity>
+        <activity android:name=".ChecksForThisMonth" />
+        <activity android:name=".ParentAdd"></activity>
     </application>
 
 </manifest>

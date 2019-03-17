@@ -8,7 +8,7 @@ public class Baby {
     private String weight;
     private String lenght;
     private long date;
-    private String owner;
+
 
     public Baby()
     {
@@ -54,9 +54,6 @@ public class Baby {
         this.key = key;
     }
 
-    public String getOwner() {
-        return owner;
-    }
 
     @Override
     public String toString() {
@@ -66,10 +63,6 @@ public class Baby {
                 ", length='" + lenght + '\'' +
                 ", date=" + date +
                 '}';
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
     }
 
 

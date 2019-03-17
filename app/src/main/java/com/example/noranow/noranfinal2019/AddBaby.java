@@ -94,7 +94,7 @@ public class AddBaby extends AppCompatActivity {
 
             //get user email to set is as the owner of this task
             FirebaseAuth auth = FirebaseAuth.getInstance();
-            baby.setOwner(auth.getCurrentUser().getEmail());
+
 // to get the database root reference
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
