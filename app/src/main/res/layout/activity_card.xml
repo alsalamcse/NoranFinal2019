@@ -6,23 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".CardActivity">
 
-    <TextView
-        android:id="@+id/tvcard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="HEALTH CARD"
-        android:textAppearance="@android:style/TextAppearance.Holo.DialogWindowTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ListView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-        android:id="@+id/listview1"
-        ></ListView>
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabadd"
         android:layout_width="wrap_content"
@@ -34,5 +17,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:rippleColor="@color/colorPrimaryDark" />
+
+    <TextView
+        android:id="@+id/tvcard"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="28dp"
+        android:text="HEALTH CARD"
+        android:textAppearance="@android:style/TextAppearance.Holo.DialogWindowTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listview1"
+        android:layout_width="wrap_content"
+        android:layout_height="437dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="48dp"></ListView>
 
 </RelativeLayout>

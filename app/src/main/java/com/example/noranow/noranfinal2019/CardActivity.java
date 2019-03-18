@@ -43,7 +43,7 @@ public class CardActivity extends AppCompatActivity {
         fabadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AddBaby.class);
+                Intent i = new Intent(getApplicationContext(), ParentAdd.class);
                 startActivity(i);
             }
         });
