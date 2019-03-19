@@ -8,43 +8,47 @@
 
     <EditText
         android:id="@+id/edtfirst"
-        android:layout_width="365dp"
-        android:layout_height="49dp"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
         android:layout_marginTop="27dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="4dp"
         android:layout_marginBottom="12dp"
         android:ems="10"
-        android:hint="First name"
+        android:hint="Parent name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/edtLast"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edtLast"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="3dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="Last name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/edtPhone"
-        app:layout_constraintEnd_toEndOf="@+id/edtPhone"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtfirst" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edtPhone"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
         android:layout_marginBottom="11dp"
         android:ems="10"
         android:hint="Phone number"
         android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/edtemail"
-        app:layout_constraintEnd_toEndOf="@+id/edtemail"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toTopOf="@+id/edtId"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtLast" />
 
@@ -52,26 +56,29 @@
         android:id="@+id/edtemail"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="14dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/edtpass"
-        app:layout_constraintEnd_toEndOf="@+id/edtpass"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/edtId" />
 
     <EditText
         android:id="@+id/edtpass"
-        android:layout_width="363dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="33dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/btnsave"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtemail" />
 
@@ -79,10 +86,25 @@
         android:id="@+id/btnsave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="135dp"
+        android:layout_marginBottom="53dp"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/edtpass"
-        app:layout_constraintStart_toStartOf="@+id/edtpass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtpass" />
+
+    <EditText
+        android:id="@+id/edtId"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="13dp"
+        android:ems="10"
+        android:hint="Id number"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/edtemail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPhone" />
 </android.support.constraint.ConstraintLayout>

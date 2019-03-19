@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.noranow.noranfinal2019.data.Parent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,7 +20,7 @@ SignUpActivity extends AppCompatActivity {
     FirebaseAuth auth;//to establish sign in sign up
     FirebaseUser user;//user
 
-    private EditText edtfirst, edtLast,edtPhone,edtemail,edtpass;
+    private EditText edtfirst, edtLast,edtPhone,edtemail,edtpass,edtId;
     private Button btnsave;
 
     @Override
@@ -31,6 +32,7 @@ SignUpActivity extends AppCompatActivity {
         edtLast =(EditText)findViewById(R.id .edtLast) ;
         edtpass=(EditText)findViewById(R.id .edtpass) ;
         edtPhone=(EditText)findViewById(R.id.edtPhone);
+        edtId=findViewById(R.id.edtId);
         btnsave=(Button)findViewById(R.id.btnsave);
         auth=FirebaseAuth.getInstance();
         user=auth.getCurrentUser();//
@@ -47,30 +49,61 @@ SignUpActivity extends AppCompatActivity {
     /**
      * get email and passwor from the field and try to create new user
      */
-    private void dataHandler()
-    {
-        boolean isok=true;//if all the fields filled well
-        String email=edtemail.getText().toString();
-        String passw1=edtpass.getText().toString();
-        String fname=edtfirst.getText().toString();
-        String lname=edtLast.getText().toString();
-        String phone=edtPhone.getText().toString();
-        if(email.length()<4 ||
-                email.indexOf('@')<0 ||
-                email.indexOf('.')<0)
-        {
+    private void dataHandler() {
+        boolean isok = true;
+        String name = edtfirst.getText().toString();
+        String lastname=edtLast.getText().toString();
+        String id = edtId.getText().toString();
+        // String date = edtdate.getText().toString();
+        String phone = edtPhone.getText().toString();
+        String email = edtemail.getText().toString();
+        String pass = edtpass.getText().toString();
+
+        if (name.length() == 0) {
+            edtfirst.setError("Name can not be empty");
+            isok = false;
+
+        }
+        if (lastname.length() == 0) {
+            edtLast.setError("Last name can not be empty");
+            isok = false;
+
+        }
+        if (id.length() == 0) {
+            edtId.setError("Id can not be empty");
+            isok = false;
+
+        }
+        if (phone.length() == 0) {
+            edtPhone.setError("Phone can not be empty");
+            isok = false;
+        }
+        if (email.length() < 4 ||
+                email.indexOf('@') < 0 ||
+                email.indexOf('.') < 0) {
             edtemail.setError("Wrong Eamil");
-            isok=false;
+            isok = false;
         }
-        if(passw1.length()<8)
-        {
-           edtpass.setError("Have to be at least 8 char");
-            isok=false;
-        }
-        if(isok)
-        {
-            creatAcount(email,passw1);
-        }
+            if(pass.length()<8)
+            {
+                edtpass.setError("Have to be at least 8 char");
+                isok=false;
+            }
+            if(isok)
+            {
+                creatAcount(email,pass);
+            }
+
+            if (isok) {
+                ///MyTask task = new MyTask();
+                Parent parent = new Parent();
+                parent.setEmail(email);
+                parent.setId(id);
+                parent.setName(name);
+                parent.setPhone(phone);
+
+
+
     }
 
     //4.
@@ -80,8 +113,8 @@ SignUpActivity extends AppCompatActivity {
      * @param email user eamil
      * @param passw user password
      */
-    private void creatAcount(String email, String passw) {
-        auth.createUserWithEmailAndPassword(email,passw)
+    private void creatAcount(String email, String pass) {
+        auth.createUserWithEmailAndPassword(email,pass)
                 .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

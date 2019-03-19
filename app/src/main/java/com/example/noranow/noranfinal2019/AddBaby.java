@@ -51,12 +51,7 @@ public class AddBaby extends AppCompatActivity {
 
 
         }
-       //btnpickdate.setOnClickListener(new View.OnClickListener() {
-           /// @Override
-           /// public void onClick(View v) {
 
-           /// }
-        //});
 
 
 
@@ -101,8 +96,8 @@ public class AddBaby extends AppCompatActivity {
             //to get uid(universal id)
             String key = reference.child("MyBaby").push().getKey();
            baby.setKey(key);
-
-            reference.child("MyBaby").child(key).setValue(baby).addOnCompleteListener(new OnCompleteListener<Void>() {
+            String email = auth.getCurrentUser().getEmail();
+            reference.child(email.replace('.','*')).child(key).setValue(baby).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {

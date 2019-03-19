@@ -1,26 +1,21 @@
 package com.example.noranow.noranfinal2019;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.noranow.noranfinal2019.data.Baby;
-import com.example.noranow.noranfinal2019.data.MyTask;
 import com.example.noranow.noranfinal2019.data.TaskAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class CardActivity extends AppCompatActivity {
     private TextView tvcard;
@@ -38,19 +33,21 @@ public class CardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_card);
         listview1 = findViewById(R.id.listview1);
         tvcard = findViewById(R.id.tvcard);
+        taskAdapter=new TaskAdapter(getApplicationContext(),R.layout.task_item);
         listview1.setAdapter(taskAdapter);
         fabadd = findViewById(R.id.fabadd);
+        getMyBaby();
         fabadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ParentAdd.class);
+                Intent i = new Intent(getApplicationContext(), AddBaby.class);
                 startActivity(i);
             }
         });
        /// ArrayAdapter<String>adapter=new ArrayAdapter<String>(this,R.layout.task_item,R);
 
     }
-    private void getAllbook(){
+    private void getMyBaby(){
         DatabaseReference reference=FirebaseDatabase.getInstance().getReference();
         reference.child("MyBaby").addValueEventListener(new ValueEventListener() {
 
