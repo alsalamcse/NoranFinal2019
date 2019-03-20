@@ -49,7 +49,7 @@ public class CardActivity extends AppCompatActivity {
     }
     private void getMyBaby(){
         DatabaseReference reference=FirebaseDatabase.getInstance().getReference();
-        reference.child("MyBaby").addValueEventListener(new ValueEventListener() {
+        reference.child("Parent").addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
