@@ -94,10 +94,10 @@ public class AddBaby extends AppCompatActivity {
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
             //to get uid(universal id)
-            String key = reference.child("MyBaby").push().getKey();
-           baby.setKey(key);
-            String email = auth.getCurrentUser().getEmail();
-            reference.child(email.replace('.','*')).child(key).setValue(baby).addOnCompleteListener(new OnCompleteListener<Void>() {
+            String key = reference.child("Parent").push().getKey();
+            baby.setKey(key);
+
+            reference.child("Parent").child(key).setValue(baby).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
