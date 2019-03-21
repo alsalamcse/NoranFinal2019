@@ -84,7 +84,11 @@ public class CardActivity extends AppCompatActivity {
         listview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+              //  String name = parent.getSelectedItem().getClass().getName().toString();
                 Intent i=new Intent(CardActivity.this,ChecksForThisMonth.class);
+
+                i.putExtra("BabyName" ,taskAdapter.getItem(position).getName());  // sending the baby name To a new activity
                 startActivity(i);
             }
         });

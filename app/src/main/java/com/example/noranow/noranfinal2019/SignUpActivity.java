@@ -143,6 +143,8 @@ SignUpActivity extends AppCompatActivity {
         }
 
 
+
+
     private void creatAcount(final String email, String pass) {
         final String Firstname=edtfirst.getText().toString();
         final String Lastname=edtLast.getText().toString();
@@ -169,6 +171,8 @@ SignUpActivity extends AppCompatActivity {
 
 
     }
+
+
 }
 
 
