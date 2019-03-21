@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class ParentAdd extends AppCompatActivity {
     private EditText edtPname, edtEmail, edtPhone, edtID;
     private Button btnAddP;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,7 @@ public class ParentAdd extends AppCompatActivity {
                 FirebaseAuth auth = FirebaseAuth.getInstance();
 
 // to get the database root reference
-                DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+                reference = FirebaseDatabase.getInstance().getReference();
 
                 //to get uid(universal id)
                 String key = reference.child("Parent").push().getKey();
@@ -96,6 +97,7 @@ public class ParentAdd extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
+
                             Toast.makeText(ParentAdd.this, "Add Successful", Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(ParentAdd.this, "Add Faild"+ task.getException().getMessage(), Toast.LENGTH_LONG).show();

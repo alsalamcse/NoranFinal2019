@@ -17,10 +17,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class
 SignUpActivity extends AppCompatActivity {
     FirebaseAuth auth;//to establish sign in sign up
     FirebaseUser user;//user
+    DatabaseReference databaseReference;
 
     private EditText edtfirst, edtLast, edtPhone, edtemail, edtpass, edtId;
     private Button btnsave;
@@ -38,6 +41,7 @@ SignUpActivity extends AppCompatActivity {
         btnsave = (Button) findViewById(R.id.btnsave);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();//
+        databaseReference=FirebaseDatabase.getInstance().getReference();
 
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +106,7 @@ SignUpActivity extends AppCompatActivity {
             parent.setPhone(phone);
 
 
-            ///   FirebaseAuth auth = FirebaseAuth.getInstance();
+              /// FirebaseAuth auth = FirebaseAuth.getInstance();
 
 // to get the database root reference
             /////DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
@@ -139,12 +143,20 @@ SignUpActivity extends AppCompatActivity {
         }
 
 
-    private void creatAcount(String email, String pass) {
+    private void creatAcount(final String email, String pass) {
+        final String Firstname=edtfirst.getText().toString();
+        final String Lastname=edtLast.getText().toString();
+                final String id=auth.getUid();
         auth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            HashMap<String,String> hashMap=new HashMap<>();
+                            hashMap.put("First name",Firstname);
+                            hashMap.put("Last name",Lastname);
+                            hashMap.put("Email",email);
+                            databaseReference.child("Parent").child(id).setValue(hashMap);
                             Toast.makeText(SignUpActivity.this, "Authentication Successful.", Toast.LENGTH_SHORT).show();
                             //updateUserProfile(task.getResult().getUser());
                             finish();
