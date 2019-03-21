@@ -44,8 +44,9 @@ public class AddBaby extends AppCompatActivity {
             @Override
             public void onClick(View view) {dataHandler();
 
-                Intent i=new Intent(getApplicationContext(),CardActivity .class);
-                startActivity(i);
+                //Intent i=new Intent(getApplicationContext(),CardActivity .class);
+
+              //  startActivity(i);
             }
         });
 
@@ -87,6 +88,7 @@ public class AddBaby extends AppCompatActivity {
             baby.setName(name);
             baby.setWeight(weight);
 
+
             //get user email to set is as the owner of this task
             FirebaseAuth auth = FirebaseAuth.getInstance();
 
@@ -96,12 +98,14 @@ public class AddBaby extends AppCompatActivity {
             //to get uid(universal id)
             String key = reference.child("Parent").push().getKey();
             baby.setKey(key);
-
-            reference.child("Parent").child(key).setValue(baby).addOnCompleteListener(new OnCompleteListener<Void>() {
+String Email=auth.getCurrentUser().getEmail();
+            reference.child("babys").child(Email.replace('.','*')).child(key).setValue(baby).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(AddBaby.this, "Add Successful", Toast.LENGTH_LONG).show();
+                        Intent i=new Intent(getApplicationContext(),CardActivity .class);
+                        startActivity(i);
                     } else {
                         Toast.makeText(AddBaby.this, "Add Faild"+ task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         task.getException().printStackTrace();

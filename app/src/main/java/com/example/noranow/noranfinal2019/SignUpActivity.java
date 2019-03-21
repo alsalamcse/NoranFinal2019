@@ -1,5 +1,6 @@
 package com.example.noranow.noranfinal2019;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -99,11 +100,7 @@ SignUpActivity extends AppCompatActivity {
 
         if (isok) {
             ///MyTask task = new MyTask();
-            Parent parent = new Parent();
-            parent.setEmail(email);
-            parent.setId(id);
-            parent.setName(name);
-            parent.setPhone(phone);
+
 
 
               /// FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -148,17 +145,44 @@ SignUpActivity extends AppCompatActivity {
     private void creatAcount(final String email, String pass) {
         final String Firstname=edtfirst.getText().toString();
         final String Lastname=edtLast.getText().toString();
-                final String id=auth.getUid();
+
         auth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            HashMap<String,String> hashMap=new HashMap<>();
-                            hashMap.put("First name",Firstname);
-                            hashMap.put("Last name",Lastname);
-                            hashMap.put("Email",email);
-                            databaseReference.child("Parent").child(id).setValue(hashMap);
+                            String name = edtfirst.getText().toString();
+
+                            String phone = edtPhone.getText().toString();
+                            String email = edtemail.getText().toString();
+
+
+                            Parent parent = new Parent();
+                            parent.setEmail(email);
+                            parent.setName(name);
+                            parent.setPhone(phone);
+                            FirebaseAuth auth = FirebaseAuth.getInstance();
+
+// to get the database root reference
+                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+                            //to get uid(universal id)
+                            String key = reference.child("Parent").push().getKey();
+                            parent.setKey(key);
+
+                            reference.child("Parent").child(key).setValue(parent).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(), "Add Successful", Toast.LENGTH_LONG).show();
+                                        Intent i=new Intent(getApplicationContext(),CardActivity .class);
+                                        startActivity(i);
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "Add Faild"+ task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                        task.getException().printStackTrace();
+                                    }
+                                }
+                            });
                             Toast.makeText(SignUpActivity.this, "Authentication Successful.", Toast.LENGTH_SHORT).show();
                             //updateUserProfile(task.getResult().getUser());
                             finish();

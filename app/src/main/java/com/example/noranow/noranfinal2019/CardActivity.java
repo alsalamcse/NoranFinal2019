@@ -48,29 +48,8 @@ public class CardActivity extends AppCompatActivity {
         auth=FirebaseAuth.getInstance();
         user=auth.getCurrentUser();
         getMyBaby();
-        reference=FirebaseDatabase.getInstance().getReference();
-        reference.child("Parent").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot d:dataSnapshot.getChildren()){
-                    String id=dataSnapshot.child("Parent").getKey();
-                    String userId=user.getUid().toString();
-                    if (id.contains(userId)){
-                        Baby baby=new Baby();
-                       taskAdapter.add(baby);
 
 
-
-                    }
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
 
 
@@ -100,7 +79,9 @@ public class CardActivity extends AppCompatActivity {
 
     private void getMyBaby() {
        reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("Parent").addValueEventListener(new ValueEventListener() {
+        String Email=auth.getCurrentUser().getEmail();
+
+        reference.child("babys").child(Email.replace('.','*')).addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
