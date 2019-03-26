@@ -4,88 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddBaby">
+    tools:context=".AddBaby"
+    tools:layout_editor_absoluteY="81dp">
 
     <EditText
         android:id="@+id/edtNameBaby"
-        android:layout_width="358dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
         android:hint="The baby name"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        app:layout_constraintBottom_toTopOf="@+id/edtdate"
+        app:layout_constraintEnd_toEndOf="@+id/edtdate"
+        app:layout_constraintStart_toStartOf="@+id/edtdate"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnAddBaby"
         android:layout_width="109dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="77dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="71dp"
+        android:backgroundTint="?android:attr/textColorHighlightInverse"
         android:text="add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtLength"
-        app:layout_constraintVertical_bias="0.492" />
+        app:layout_constraintTop_toBottomOf="@+id/edtLength" />
 
     <EditText
         android:id="@+id/edtWeight"
-        android:layout_width="365dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="279dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="Birth weight"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        app:layout_constraintBottom_toTopOf="@+id/edtLength"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/edtdate"
+        app:layout_constraintTop_toBottomOf="@+id/btnpickdate" />
 
     <EditText
         android:id="@+id/edtLength"
-        android:layout_width="362dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="204dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="52dp"
         android:ems="10"
         android:hint="Birth length"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddBaby"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtWeight"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/edtWeight" />
 
     <EditText
         android:id="@+id/edtdate"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="11dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="19dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/btnpickdate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNameBaby" />
 
     <Button
         android:id="@+id/btnpickdate"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="345dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="14dp"
+        android:backgroundTint="?android:attr/textColorHighlightInverse"
         android:onClick="onClick"
         android:text="Pick date"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edtWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtdate" />
