@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">NoranFinal2019</string>
     <string name="title_activity_card">CardActivity</string>
+    <string name="title_activity_first">First</string>
+    <string-array name="Doctor">
+        <item>The name of the doctor</item>
+    </string-array>
 </resources>

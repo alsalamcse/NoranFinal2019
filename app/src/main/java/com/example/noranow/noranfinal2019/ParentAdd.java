@@ -18,7 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ParentAdd extends AppCompatActivity {
-    private EditText edtPname, edtEmail, edtPhone, edtID;
+    private EditText edtPname, edtEmail, edtPhone, edtID,edtpass,edtlastname;
     private Button btnAddP;
     DatabaseReference reference;
 
@@ -31,6 +31,8 @@ public class ParentAdd extends AppCompatActivity {
         edtID = findViewById(R.id.edtID);
         edtPhone = findViewById(R.id.edtPhone);
         btnAddP = findViewById(R.id.btnAddP);
+        edtlastname=findViewById(R.id.edtlastname);
+        edtpass=findViewById(R.id.edtpass);
 
         btnAddP.setOnClickListener(new View.OnClickListener() {
             @Override

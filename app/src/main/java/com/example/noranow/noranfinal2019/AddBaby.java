@@ -6,9 +6,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.noranow.noranfinal2019.data.Baby;
@@ -50,7 +52,11 @@ public class AddBaby extends AppCompatActivity {
             }
         });
 
-
+        Spinner spinner=findViewById(R.id.Sp);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.Doctor, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
         }
 
 
