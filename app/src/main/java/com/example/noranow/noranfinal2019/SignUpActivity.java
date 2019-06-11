@@ -40,10 +40,9 @@ SignUpActivity extends AppCompatActivity {
         edtPhone = (EditText) findViewById(R.id.edtPhone);
         edtId = findViewById(R.id.edtId);
         btnsave = (Button) findViewById(R.id.btnsave);
-        auth = FirebaseAuth.getInstance();
-        user = auth.getCurrentUser();//
-        databaseReference=FirebaseDatabase.getInstance().getReference();
-
+        FirebaseAuth auth;//to establish sign in sign up
+        FirebaseUser user;//user
+        DatabaseReference databaseReference;
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,33 +98,7 @@ SignUpActivity extends AppCompatActivity {
         }
 
         if (isok) {
-            ///MyTask task = new MyTask();
 
-
-
-              /// FirebaseAuth auth = FirebaseAuth.getInstance();
-
-// to get the database root reference
-            /////DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-
-            //to get uid(universal id)
-            /////String key = reference.child("Parent").push().getKey();
-            ///  parent.setKey(key);
-
-            ////reference.child("Parent").child(key).setValue(parent).addOnCompleteListener(new OnCompleteListener<Void>() {
-            ////@Override
-            //////public void onComplete(@NonNull Task<Void> task) {
-            /////if (task.isSuccessful()) {
-            /////Toast.makeText(SignUpActivity.this, "Add Successful", Toast.LENGTH_LONG).show();
-            ////} else {
-            //////Toast.makeText(SignUpActivity.this, "Add Faild"+ task.getException().getMessage(), Toast.LENGTH_LONG).show();
-            ////task.getException().printStackTrace();
-            //}
-            //}
-            //});
-            //}
-
-            //4.
 
             /**
              *create firebase user using email and password
@@ -143,7 +116,7 @@ SignUpActivity extends AppCompatActivity {
 
 
     private void creatAcount(final String email, String pass) {
-        final String Firstname=edtfirst.getText().toString();
+        final String name=edtfirst.getText().toString();
         final String Lastname=edtLast.getText().toString();
 
         auth.createUserWithEmailAndPassword(email, pass)

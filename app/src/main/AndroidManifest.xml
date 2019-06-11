@@ -23,11 +23,11 @@
         <activity android:name=".AddBaby" />
         <activity android:name=".ChecksForThisMonth" />
         <activity android:name=".ParentAdd" />
-        <activity android:name=".First" />
         <activity android:name=".DocSignin" />
         <activity android:name=".DocSignup" />
         <activity android:name=".DocList" />
-        <activity android:name=".checks"></activity>
+        <activity android:name=".checks" />
+        <activity android:name=".dummy.First"></activity>
     </application>
 
 </manifest>

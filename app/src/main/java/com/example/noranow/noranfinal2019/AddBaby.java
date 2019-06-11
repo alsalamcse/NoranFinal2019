@@ -10,16 +10,23 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.noranow.noranfinal2019.data.Baby;
+import com.example.noranow.noranfinal2019.data.Doctor;
 import com.example.noranow.noranfinal2019.data.MyTask;
+import com.example.noranow.noranfinal2019.data.TaskAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -29,6 +36,12 @@ public class AddBaby extends AppCompatActivity {
     private Button btnAddBaby,btnpickdate;
     private int mYear, mMonth, mDay;
     private long myDate;
+    private Spinner Sp;
+    private TaskAdapter taskAdapter2;
+    private ArrayAdapter<String> adapter2;
+    DatabaseReference reference;
+    FirebaseAuth auth;
+    FirebaseUser user;
 
 
     @Override
@@ -52,11 +65,14 @@ public class AddBaby extends AppCompatActivity {
             }
         });
 
-        Spinner spinner=findViewById(R.id.Sp);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.Doctor, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       Spinner spinner=findViewById(R.id.Sp);
+       //create an ArrayAdapter using the string array and a default spinner layout
+       ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.Doctor, android.R.layout.simple_spinner_item);
+       //specify the layout to use when the list of choices appears
+       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       //apply the adapter to the spinner
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+      //  spinner.setOnItemSelectedListener(this);
         }
 
 
@@ -148,6 +164,30 @@ String Email=auth.getCurrentUser().getEmail();
             datePickerDialog.show();
         }
     }
+    private void getDoctor() {
+        reference = FirebaseDatabase.getInstance().getReference();
+        String Email=auth.getCurrentUser().getEmail();
+
+        reference.child("doctors").child(Email.replace('.','*')).addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                taskAdapter2.clear();
+                for (DataSnapshot d : dataSnapshot.getChildren()) {
+                    Doctor doctor = d.getValue(Doctor.class);
+                    taskAdapter2.add(doctor);
+                }
+                taskAdapter2.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(AddBaby.this, "onCancelled", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
 }
 
 

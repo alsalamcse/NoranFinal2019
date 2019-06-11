@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ChecksForThisMonth extends AppCompatActivity {
 
-    private TextView tvcheck,tvBabyName,tvw,tvl;
+    private TextView tvcheck,tvBabyName;
 
     private CheckBox checkBox,checkBox3,checkBox2;
     private Button btnsave3;
@@ -35,8 +35,8 @@ public class ChecksForThisMonth extends AppCompatActivity {
         checkBox2=findViewById(R.id.checkBox2);
         checkBox3=findViewById(R.id.checkBox3);
         btnsave3=findViewById(R.id.btnsave3);
-       tvl=findViewById(R.id.tvl);
-       tvw=findViewById(R.id.tvw);
+        tvBabyName=findViewById(R.id.tvBabyName);
+        tvcheck =findViewById(R.id.tvcheck);
         String BabyName= getIntent().getStringExtra("BabyName");
      //   DatabaseReference Check = reference1.child("checks");
        // Check.setValue(checkBox.isChecked());

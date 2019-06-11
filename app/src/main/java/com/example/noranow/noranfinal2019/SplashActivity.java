@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.noranow.noranfinal2019.R;
 import com.example.noranow.noranfinal2019.SignInActivity;
+import com.example.noranow.noranfinal2019.dummy.First;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
 
             try {
                 sleep(3000);
-                Intent i=new Intent(getApplicationContext(),SignInActivity.class);
+                Intent i=new Intent(getApplicationContext(),First.class);
                 startActivity(i);
             } catch (InterruptedException e) {
                 e.printStackTrace();
