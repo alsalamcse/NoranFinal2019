@@ -20,8 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class
-SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
     FirebaseAuth auth;//to establish sign in sign up
     FirebaseUser user;//user
     DatabaseReference databaseReference;

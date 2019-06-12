@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DocSignup extends AppCompatActivity {
-    private EditText edtdname,edtdnum,edtdid;
+    private EditText edtdname,edtdnum,edtdid,edtemaildoc,edtpassdoc;
     private Button btndSave;
     FirebaseAuth auth;//to establish sign in sign up
     FirebaseUser user;//user
@@ -34,6 +34,8 @@ public class DocSignup extends AppCompatActivity {
         edtdnum=findViewById(R.id.edtdnum);
         edtdid=findViewById(R.id.edtdid);
         btndSave=findViewById(R.id.btndSave);
+        edtpassdoc=findViewById(R.id.edtpassdoc);
+        edtemaildoc=findViewById(R.id.edtemaildoc);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();//
         databaseReference=FirebaseDatabase.getInstance().getReference();
@@ -52,8 +54,9 @@ public class DocSignup extends AppCompatActivity {
         boolean isok = true;
         String name = edtdname.getText().toString();
         String id = edtdid.getText().toString();
-        String licensenumber = edtdnum.getText().toString();
-
+        String license = edtdnum.getText().toString();
+        String email = edtemaildoc.getText().toString();
+        String pass = edtpassdoc.getText().toString();
 
         if (name.length() == 0) {
             edtdname.setError("Name can not be empty");
@@ -66,81 +69,97 @@ public class DocSignup extends AppCompatActivity {
             isok = false;
 
         }
-        if (licensenumber.length() == 0) {
-            edtdnum.setError("license number can not be empty");
+        if (license.length() == 0) {
+            edtdnum.setError("Phone can not be empty");
             isok = false;
         }
-
+        if (email.length() < 4 ||
+                email.indexOf('@') < 0 ||
+                email.indexOf('.') < 0) {
+            edtemaildoc.setError("Wrong Eamil");
+            isok = false;
+        }
+        if (pass.length() < 8) {
+            edtpassdoc.setError("Have to be at least 8 char");
+            isok = false;
+        }
         if (isok) {
-            creatAcount(name, licensenumber);
+            creatAcount(email, pass);
         }
 
         if (isok) {
 
 
             /**
-             *create firebase user using name and license number
-             * @param name user name
-             * @param licensenumber user license number
+             *create firebase user using email and password
+             * @param email user eamil
+             * @param passw user password
              *///}
 
 
+
         }
+
     }
-        private void creatAcount(final String name, String licensenumber) {
-            final String doctorname=edtdnum.getText().toString();
-
-            auth.createUserWithEmailAndPassword(name, licensenumber)
-                    .addOnCompleteListener(DocSignup.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                String name = edtdnum.getText().toString();
-
-                                String id = edtdid.getText().toString();
-                                String licensenumber = edtdnum.getText().toString();
 
 
-                               Doctor doctor = new Doctor();
-                                doctor.setId(id);
-                                doctor.setName(name);
-                                doctor.setLicense(licensenumber);
-                                FirebaseAuth auth = FirebaseAuth.getInstance();
+
+
+    private void creatAcount(final String email, String pass) {
+        final String name=edtdname.getText().toString();
+        final String license=edtdnum.getText().toString();
+
+        auth.createUserWithEmailAndPassword(email, pass)
+                .addOnCompleteListener(DocSignup.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            String name = edtdname.getText().toString();
+
+                            String license = edtdnum.getText().toString();
+                            String email = edtemaildoc.getText().toString();
+
+
+                            Doctor doctor = new Doctor();
+                            doctor.setEmail(email);
+                            doctor.setName(name);
+                            doctor.setLicense(license);
+                            FirebaseAuth auth = FirebaseAuth.getInstance();
 
 // to get the database root reference
-                                DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
-                                //to get uid(universal id)
-                                String key = reference.child("Doctor").push().getKey();
-                                doctor.setKey(key);
+                            //to get uid(universal id)
+                            String key = reference.child("Doctor").push().getKey();
+                            doctor.setKey(key);
 
-                                reference.child("Doctor").child(key).setValue(doctor).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Toast.makeText(getApplicationContext(), "Add Successful", Toast.LENGTH_LONG).show();
-                                            Intent i=new Intent(getApplicationContext(),DocList .class);
-                                            startActivity(i);
-                                        } else {
-                                            Toast.makeText(getApplicationContext(), "Add Faild"+ task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                                            task.getException().printStackTrace();
-                                        }
+                            reference.child("Doctor").child(key).setValue(doctor).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(), "Add Successful", Toast.LENGTH_LONG).show();
+                                        Intent i=new Intent(getApplicationContext(),DocList .class);
+                                        startActivity(i);
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), "Add Faild"+ task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                        task.getException().printStackTrace();
                                     }
-                                });
-                                Toast.makeText(DocSignup.this, "Authentication Successful.", Toast.LENGTH_SHORT).show();
-                                //updateUserProfile(task.getResult().getUser());
-                                finish();
-                            } else {
-                                Toast.makeText(DocSignup.this, "Authentication failed." + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                task.getException().printStackTrace();
-                            }
+                                }
+                            });
+                            Toast.makeText(DocSignup.this, "Authentication Successful.", Toast.LENGTH_SHORT).show();
+                            //updateUserProfile(task.getResult().getUser());
+                            finish();
+                        } else {
+                            Toast.makeText(DocSignup.this, "Authentication failed." + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            task.getException().printStackTrace();
                         }
-                    });
-
-
-        }
+                    }
+                });
 
 
     }
+
+
+}
 
 

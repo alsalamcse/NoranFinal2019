@@ -5,9 +5,11 @@ public class Doctor {
     private String id;
     private String license;
     private String key;
+    private String email;
 
     public Doctor()
     {
+
     }
 
     public String getName() {
@@ -16,6 +18,15 @@ public class Doctor {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 
@@ -50,7 +61,9 @@ public class Doctor {
                 "name='" + name+ '\'' +
                 ", license='" + license + '\'' +
                 ", id='" + id + '\'' +
+                ", email=" + email +
                 '}';
+
     }
 
 

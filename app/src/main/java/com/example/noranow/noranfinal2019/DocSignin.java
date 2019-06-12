@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class DocSignin extends AppCompatActivity {
     private Button btndin,btndup;
-    private EditText docname,docnum;
+    private EditText edtdemail,edtdpass;
     FirebaseAuth auth;//to establish sign in sign up
     FirebaseUser user;//user
 
@@ -28,8 +28,8 @@ public class DocSignin extends AppCompatActivity {
         setContentView(R.layout.activity_doc_signin);
         btndin=findViewById(R.id.btndin);
         btndup=findViewById(R.id.btndup);
-        docname=findViewById(R.id.docname);
-        docnum=findViewById(R.id.docnum);
+        edtdpass=findViewById(R.id.edtdpass);
+        edtdemail=findViewById(R.id.edtdemail);
 
        btndup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,20 +49,21 @@ public class DocSignin extends AppCompatActivity {
 
     private void dataHandler()
     {
-        String name=docname.getText().toString();
-        String license=docnum.getText().toString();
-        signIn(name,license);
+        String email=edtdemail.getText().toString();
+        String passw=edtdpass.getText().toString();
+        signIn(email,passw);
     }
 
-    private void signIn(String name, String license) {
+
+    private void signIn(String email, String passw) {
         FirebaseAuth auth=FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(name,license).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        auth.signInWithEmailAndPassword(email,passw).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
                     Toast.makeText(DocSignin.this, "signIn Successful.", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(DocSignin.this,CardActivity.class);
+                    Intent intent=new Intent(DocSignin.this,DocList.class);
                     startActivity(intent);
                     //  finish();
                 }
@@ -76,4 +77,5 @@ public class DocSignin extends AppCompatActivity {
     }
 
 }
+
 

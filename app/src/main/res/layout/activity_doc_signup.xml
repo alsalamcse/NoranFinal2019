@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DocSignup">
+    tools:context=".DocSignup"
+    tools:layout_editor_absoluteY="81dp">
 
     <EditText
         android:id="@+id/edtdname"
@@ -43,11 +44,11 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="53dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Id number"
         android:inputType="numberSigned"
-        app:layout_constraintBottom_toTopOf="@+id/btndSave"
+        app:layout_constraintBottom_toTopOf="@+id/edtemaildoc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtdnum" />
@@ -56,10 +57,41 @@
         android:id="@+id/btndSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="212dp"
+        android:layout_marginBottom="86dp"
         android:text="save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtpassdoc" />
+
+    <EditText
+        android:id="@+id/edtemaildoc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="17dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/edtpassdoc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtdid" />
+
+    <EditText
+        android:id="@+id/edtpassdoc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="56dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/btndSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtemaildoc" />
+
 </android.support.constraint.ConstraintLayout>
