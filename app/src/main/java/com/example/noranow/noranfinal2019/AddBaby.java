@@ -168,7 +168,7 @@ String Email=auth.getCurrentUser().getEmail();
         reference = FirebaseDatabase.getInstance().getReference();
         String Email=auth.getCurrentUser().getEmail();
 
-        reference.child("doctors").child(Email.replace('.','*')).addValueEventListener(new ValueEventListener() {
+        reference.child("doctor").child(Email.replace('.','*')).addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
